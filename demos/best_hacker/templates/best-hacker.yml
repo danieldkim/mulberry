@@ -1,0 +1,12 @@
+best-hacker:
+  screens:
+    - name: index
+      regions:
+        - type: row
+          regions:
+            - type: column
+              className: hacker-list
+              size: fixed
+              components:
+              - custom.BestHackerPoll
+
