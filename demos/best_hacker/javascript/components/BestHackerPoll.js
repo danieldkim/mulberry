@@ -5,7 +5,7 @@ mulberry.component('BestHackerPoll', {
 
   prep : function() {
     this.hackers = this.baseObj.getData('Hacker').hackers;
-    dojo.forEach(this, hackers, function(hacker) {
+    dojo.forEach(this.hackers, function(hacker) {
 
     });
   },
