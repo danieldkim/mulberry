@@ -7,7 +7,16 @@ dojo.provide('toura.Analytics');
 (function(){
 
 var analytics = {
-  log : function() { /* noop pending Google Analytics integration */ }
+  log : function() {
+    /* noop pending Google Analytics integration */
+    // alert(arguments[0])
+    var url = arguments[0];
+    if (mulberry.app.PhoneGap.present) {
+      url += '?device=' + mulberry.Device.os;
+    }
+    console.log("tracking page view " + url + " in Google Analytics");
+    _gaq.push(['_trackPageview', url]);
+  }
 };
 
 dojo.declare('toura.Analytics', null, {
@@ -44,7 +53,8 @@ dojo.declare('toura.Analytics', null, {
    * @param {String} hash  The hash for the pageview
    */
   _trackPageview : function(hash) {
-    analytics.log('/tour/' + mulberry.app.Config.get('app').id + hash);
+    // analytics.log('/tour/' + mulberry.app.Config.get('app').id + hash);
+    analytics.log(hash)
   },
 
   /**
